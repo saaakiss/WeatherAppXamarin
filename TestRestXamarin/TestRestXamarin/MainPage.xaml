@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TestRestXamarin"
+             x:Class="TestRestXamarin.MainPage">
+
+    <Grid>
+        <Label Text="My Weather app" 
+               FontSize="25"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+        <StackLayout VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Entry x:Name="EntryCity" 
+                   Placeholder="My City...."
+                   HorizontalTextAlignment="Center"/>
+            <Button Text="View Weather"
+                    Margin="20"
+                    Clicked="View_Weather_Button"/>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

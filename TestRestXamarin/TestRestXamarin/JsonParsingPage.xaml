@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestRestXamarin.JsonParsingPage">
+
+    <Grid>
+        <ActivityIndicator x:Name="ProgressLoader"
+                           IsRunning="True"
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Vertical" 
+                         Grid.Row="0"
+                         HorizontalOptions="FillAndExpand">
+                <Label x:Name="TitleLabel" 
+                       Margin="10"
+                       FontSize="25"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+            <ListView x:Name="listViewWeather" 
+                      Grid.Row="1"
+                      HorizontalOptions="FillAndExpand"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid HorizontalOptions="FillAndExpand"
+                                  Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Row="0"
+                                             HorizontalOptions="Center">
+                                    <Label Text="{Binding normDate}"
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           FontSize="Large"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Row="1">
+                                    <Label Text="Temp: " 
+                                           TextColor="Black"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding temp.min}"
+                                           TextColor="Blue"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding temp.max}"
+                                           TextColor="Red"
+                                           FontAttributes="Bold"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Row="2">
+                                    <Label Text="Humidity: " 
+                                           TextColor="Black"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding humidity}"
+                                           TextColor="Gray"
+                                           FontAttributes="Bold"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Row="3">
+                                    <Label Text="Wind speed: " 
+                                           TextColor="Black"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding speed}"
+                                           TextColor="Gray"
+                                           FontAttributes="Bold"/>
+                                </StackLayout>
+                                <BoxView HeightRequest="1" 
+                                             Margin="1,10,1,10" 
+                                             BackgroundColor="Gray" 
+                                             HorizontalOptions="FillAndExpand"
+                                             Grid.Row="4"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+    
+</ContentPage>
